@@ -14,8 +14,8 @@ export class SomeThingModule {
   }
 
 
-  public thisIsMyNewMethod() {
+  public thisIsMyNewMethod(someWords) {
     console.log('Hello Method');
-    return 'Hey Method';
+    return someWords;
   }
 }

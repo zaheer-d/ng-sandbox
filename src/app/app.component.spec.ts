@@ -6,14 +6,13 @@ describe('AppComponent', () => {
 
   let somethingModuleMock;
 
-
+  // {provide: SomeThingModule,
+  //   useValue: class {
+  //   thisIsMyNewMethod = jasmine.createSpy('thisIsMyNewMethod');
+  // }
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      providers: [{provide: SomeThingModule,
-                  useValue: class {
-                    thisIsMyNewMethod = jasmine.createSpy('thisIsMyNewMethod');
-                  }
-      }],
+      providers: [SomeThingModule],
       declarations: [
         AppComponent
       ],
@@ -45,10 +44,13 @@ describe('AppComponent', () => {
     });
 
     it('should return whats up module', () => {
-      const spyMock = spyOn(somethingModuleMock, 'thisIsMyNewMethod').and.callFake(() => {
-        return 'whats up modulewww';
+      let result;
+      spyOn(somethingModuleMock, 'thisIsMyNewMethod').and.callFake((p) => {
+        console.log(p);
+        return p;
       });
-      expect(spyMock).toContain('modulewww');
+      result = somethingModuleMock.thisIsMyNewMethod('yyuyuu');
+      expect(result).toContain('hello');
   });
   });
 });
