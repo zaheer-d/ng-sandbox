@@ -1,7 +1,7 @@
 import {NgModule, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {Observable} from "rxjs/Observable";
-import {Observer} from "rxjs/Observer";
+import {Observable} from 'rxjs/Observable';
+import {Observer} from 'rxjs/Observer';
 
 @NgModule({
   imports: [
@@ -21,8 +21,7 @@ export class SomeThingModule implements OnInit {
   ngOnInit(): void {
   }
 
-  someOtherMethod() {
-  public static someOtherMethod() {
+   public someOtherMethod() {
     return 'Whats up method';
   }
 
@@ -33,8 +32,6 @@ export class SomeThingModule implements OnInit {
       dataPackage.name = 'hello';
       o.next(dataPackage);
     });
-  public static thisIsMyNewMethod(someWords) {
-    console.log('Hello Method');
-    return someWords;
   }
+
 }
