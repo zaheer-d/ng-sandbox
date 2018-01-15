@@ -1,6 +1,6 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { SomeThingModule } from './some-thing/some-thing.module';
+import {SomeThingModule, TestModel} from './some-thing/some-thing.module';
 
 describe('AppComponent', () => {
 
@@ -41,6 +41,14 @@ describe('AppComponent', () => {
       somethingModuleMock = TestBed.get(SomeThingModule);
     });
 
+    it('should get data package from myTestObs', () => {
+      const mySub$ = somethingModuleMock.myTestObservable;
+      mySub$.subscribe((d: TestModel) => {
+        expect(d.name).toEqual('hello');
+      });
+      somethingModuleMock.thisIsMyNewMethod('somewords');
+    });
+
     it('should return whats up module', () => {
       let result;
       spyOn(somethingModuleMock, 'thisIsMyNewMethod').and.callFake((p) => {
@@ -48,7 +56,7 @@ describe('AppComponent', () => {
         return p;
       });
       result = somethingModuleMock.thisIsMyNewMethod('yyuyuu');
-      expect(result).toContain('hello');
+      expect(result).not.toContain('hello');
   });
   });
 });
