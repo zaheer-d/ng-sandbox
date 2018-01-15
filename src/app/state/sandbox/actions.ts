@@ -1,0 +1,2 @@
+export const RESET_ACTION = 'RESET_ACTION';
+export const UPDATE_ACTION = 'UPDATE_ACTION';

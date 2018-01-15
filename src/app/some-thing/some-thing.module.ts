@@ -9,12 +9,11 @@ import { CommonModule } from '@angular/common';
 })
 export class SomeThingModule {
 
-  public someOtherMethod() {
+  public static someOtherMethod() {
     return 'Whats up method';
   }
 
-
-  public thisIsMyNewMethod(someWords) {
+  public static thisIsMyNewMethod(someWords) {
     console.log('Hello Method');
     return someWords;
   }
